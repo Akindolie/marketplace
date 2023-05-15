@@ -4,6 +4,8 @@ import 'package:marketplace/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../common/ui_helpers.dart';
+import '../../components/comments_tag.dart';
+import '../../components/custom_number_pagnation.dart';
 import 'review_widget_viewmodel.dart';
 
 class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
@@ -22,7 +24,7 @@ class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
-              'Showing 3 out of 2.5k+ reviews',
+              'Showing 5 out of 2.9k+ reviews',
               style: TextStyle(fontSize: 13, color: kcSemiMediumGrey),
             ),
             Container(
@@ -78,9 +80,9 @@ class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
                           children: const [
                             CircleAvatar(
                               backgroundColor: kcVeryLightGrey,
-                              radius: 20,
+                              radius: 18,
                               backgroundImage: AssetImage(
-                                  'assets/images/pinkSweatShirt-CV.png'),
+                                  'assets/images/profilePicture.jpg'),
                               // Image.asset(
                               //   'assets/images/pinkSweatShirt-CV.png',
                               //   fit: BoxFit.cover,
@@ -119,25 +121,26 @@ class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
                       children: const [
                         Expanded(
                           child: CommentsTag(
-                            label: 'dcdhcsdhucs',
+                            label: 'suscipit nec scelerisque',
                           ),
                         ),
                         horizontalSpaceTiny,
                         Expanded(
                           child: CommentsTag(
-                            label: 'dcdhcsdhuc',
+                            label: 'rutrum dftg',
                           ),
                         ),
                         horizontalSpaceTiny,
                         Expanded(
                           child: CommentsTag(
-                            label: 'dcdhcsdhu',
+                            label: 'aliquam a quam',
                           ),
                         ),
                       ],
                     ),
                     verticalSpaceMedium,
-                    Text('jvb vufb fvjdfbjfb hbdb vhsdojfhdsjfhdskfdjkf'),
+                    const Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
                     verticalSpaceMedium,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -177,52 +180,7 @@ class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
               itemCount: 5),
         ),
         verticalSpaceMedium,
-        Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: kcSemiMediumGrey.withOpacity(0.2),
-                  shape: BoxShape.circle),
-              child: const Icon(Icons.chevron_left),
-            ),
-            horizontalSpaceMedium,
-            const Text(
-              '1',
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-            horizontalSpaceMedium,
-            const Text(
-              '2',
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-            horizontalSpaceMedium,
-            const Text(
-              '3',
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-            horizontalSpaceMedium,
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: kcSemiMediumGrey.withOpacity(0.2),
-                  shape: BoxShape.circle),
-              child: const Icon(Icons.chevron_right),
-            ),
-            const Spacer(),
-            const Text('See more',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: kcPrimaryColor,
-                    fontWeight: FontWeight.w600))
-          ],
-        )
+        const CustomNumberPagnation()
       ],
     );
   }
@@ -232,34 +190,4 @@ class ReviewWidgetView extends StackedView<ReviewWidgetViewModel> {
     BuildContext context,
   ) =>
       ReviewWidgetViewModel();
-}
-
-class CommentsTag extends StatelessWidget {
-  const CommentsTag({
-    super.key,
-    required this.label,
-  });
-
-  final String label;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //height: 20,
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: kcSemiMediumGrey,
-          width: 1,
-          strokeAlign: BorderSide.strokeAlignCenter,
-        ),
-        borderRadius: BorderRadius.circular(20),
-        color: kcPrimaryColorLight,
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-            fontWeight: FontWeight.w600, color: kcPrimaryColor, fontSize: 13),
-      ),
-    );
-  }
 }

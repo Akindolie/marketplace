@@ -264,26 +264,29 @@ class ProductDetailsView extends StackedView<ProductDetailsViewModel> {
                     style: TextStyle(color: kcPrimaryColor),
                   ),
                 ),
-                child: GridView.count(
-                  scrollDirection: Axis.vertical,
-                  //padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  children: List.generate(
-                    viewModel.products.length,
-                    (index) => ProductCard(
-                      type: viewModel.products[index].type,
-                      desc: viewModel.products[index].desc,
-                      price: viewModel.products[index].price,
-                      isFav: viewModel.products[index].isFav,
-                      reviewsCount: viewModel.products[index].reviewsCount,
-                      rating: viewModel.products[index].rating,
-                      imageURL: viewModel.products[index].imageURL,
-                      onTap: () => viewModel.gotoProductDetails(index),
+                child: SizedBox(
+                  height: 400,
+                  child: GridView.count(
+                    scrollDirection: Axis.vertical,
+                    //padding: EdgeInsets.zero,
+                    //shrinkWrap: true,
+                    children: List.generate(
+                      viewModel.products.length,
+                      (index) => ProductCard(
+                        type: viewModel.products[index].type,
+                        desc: viewModel.products[index].desc,
+                        price: viewModel.products[index].price,
+                        isFav: viewModel.products[index].isFav,
+                        reviewsCount: viewModel.products[index].reviewsCount,
+                        rating: viewModel.products[index].rating,
+                        imageURL: viewModel.products[index].imageURL,
+                        onTap: () => viewModel.gotoProductDetails(index),
+                      ),
                     ),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20.0,
+                    crossAxisSpacing: 10.0,
                   ),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20.0,
-                  crossAxisSpacing: 10.0,
                 ),
               )
             ],

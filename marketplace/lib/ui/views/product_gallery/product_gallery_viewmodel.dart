@@ -32,13 +32,13 @@ class ProductGalleryViewModel extends BaseViewModel {
   void startUpLogic() {
     _mainImage = productInformation.fullImageURL!;
     _imagePreview1 =
-        'assets/images/femaleGreenShirt-CV.png'; //productInformation.imageURL;
+        productInformation.preview1ImageURL!; //productInformation.imageURL;
     _imagePreview2 =
-        'assets/images/femaleGreenShirt-CV.png'; //productInformation.imageURL;
+        productInformation.preview2ImageURL!; //productInformation.imageURL;
     _imagePreview3 =
-        'assets/images/femaleGreenShirt-CV.png'; //productInformation.imageURL;
+        productInformation.preview3ImageURL!; //productInformation.imageURL;
     _imagePreview4 =
-        'assets/images/femaleGreenShirt-CV.png'; //productInformation.imageURL;
+        productInformation.preview4ImageURL!; //productInformation.imageURL;
 
     print(_mainImage);
     print(_imagePreview1);

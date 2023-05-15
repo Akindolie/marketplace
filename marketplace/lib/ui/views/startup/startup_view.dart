@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:stacked/stacked.dart';
 import 'package:marketplace/ui/common/ui_helpers.dart';
+import 'package:stacked/stacked.dart';
 
 import 'startup_viewmodel.dart';
 
@@ -18,14 +18,24 @@ class StartupView extends StackedView<StartupViewModel> {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-              'STACKED',
+              'MARKETPLACE',
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.w900,
               ),
             ),
+            verticalSpaceSmall,
+            const Text(
+              'by MICHAEL AKINDOLIE',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            verticalSpaceLarge,
             Row(
               mainAxisSize: MainAxisSize.min,
               children: const [

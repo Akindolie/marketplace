@@ -1,17 +1,19 @@
 class Product {
-  Product(
-      {required this.desc,
-      required this.id,
-      required this.isFav,
-      required this.price,
-      required this.type,
-      required this.rating,
-      required this.reviewsCount,
-      required this.imageURL,
-      this.fullImageURL,
-      this.preview1ImageURL,
-      this.preview2ImageURL,
-      this.preview3ImageURL});
+  Product({
+    required this.desc,
+    required this.id,
+    required this.isFav,
+    required this.price,
+    required this.type,
+    required this.rating,
+    required this.reviewsCount,
+    required this.imageURL,
+    this.fullImageURL,
+    this.preview1ImageURL,
+    this.preview2ImageURL,
+    this.preview3ImageURL,
+    this.preview4ImageURL,
+  });
 
   String id;
   String type;
@@ -25,4 +27,5 @@ class Product {
   String? preview1ImageURL;
   String? preview2ImageURL;
   String? preview3ImageURL;
+  String? preview4ImageURL;
 }
