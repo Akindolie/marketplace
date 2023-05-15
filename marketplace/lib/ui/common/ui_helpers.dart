@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 const double _tinySize = 5.0;
 const double _smallSize = 10.0;
 const double _mediumSize = 25.0;
@@ -75,4 +77,26 @@ double getResponsiveFontSize(BuildContext context,
       max);
 
   return responsiveSize;
+}
+
+Widget uiDot() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10),
+    child: Container(
+      height: 5,
+      width: 5,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50), color: kcSemiMediumGrey),
+    ),
+  );
+}
+
+Widget horizontalLine(double width) {
+  return SizedBox(
+    width: width,
+    child: const Divider(
+        color: kcVeryLightGrey,
+//width: 10.0,
+        thickness: 1),
+  );
 }

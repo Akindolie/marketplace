@@ -20,13 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Moniepoint Marketplace',
+      debugShowCheckedModeBanner: false,
       theme: Theme.of(context).copyWith(
-        primaryColor: kcBackgroundColor,
+        primaryColor: kcPrimaryColor,
         focusColor: kcPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
-            ),
+        textTheme: Theme.of(context)
+            .textTheme
+            .apply(bodyColor: Colors.black, fontFamily: 'Satoshi'),
       ),
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,

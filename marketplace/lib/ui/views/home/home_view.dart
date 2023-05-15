@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:marketplace/ui/views/dashboard/dashboard_view.dart';
+import 'package:marketplace/ui/views/settings/settings_view.dart';
+import 'package:marketplace/ui/views/voucher/voucher_view.dart';
+import 'package:marketplace/ui/views/wallet/wallet_view.dart';
 import 'package:stacked/stacked.dart';
-import 'package:marketplace/ui/common/app_colors.dart';
-import 'package:marketplace/ui/common/ui_helpers.dart';
 
+import '../../common/app_colors.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -15,63 +19,50 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                verticalSpaceLarge,
-                Column(
-                  children: [
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    verticalSpaceMedium,
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      onPressed: viewModel.showDialog,
-                    ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      onPressed: viewModel.showBottomSheet,
-                    ),
-                  ],
-                )
-              ],
+      body: getViewForIndex(viewModel.currentIndex),
+      bottomNavigationBar: SizedBox(
+        height: 70,
+        child: BottomNavigationBar(
+          elevation: 5,
+          selectedItemColor: kcPrimaryColor,
+          unselectedItemColor: kcSemiMediumGrey,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          currentIndex: viewModel.currentIndex,
+          selectedLabelStyle:
+              const TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+          unselectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.w500, color: kcDarkGreyColor),
+          onTap: viewModel.setIndex,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Iconsax.home_1,
+              ),
+              activeIcon: Icon(
+                Iconsax.home5,
+              ),
+              label: 'Home',
             ),
-          ),
+            BottomNavigationBarItem(
+              icon: Icon(Iconsax.ticket),
+              activeIcon: Icon(
+                Iconsax.ticket5,
+              ),
+              label: 'Voucher',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Iconsax.wallet_3),
+              activeIcon: Icon(
+                Iconsax.wallet_35,
+              ),
+              label: 'Wallet',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Iconsax.setting),
+                label: 'Settings',
+                activeIcon: Icon(Iconsax.setting5)),
+          ],
         ),
       ),
     );
@@ -82,4 +73,19 @@ class HomeView extends StackedView<HomeViewModel> {
     BuildContext context,
   ) =>
       HomeViewModel();
+}
+
+Widget getViewForIndex(int index) {
+  switch (index) {
+    case 0:
+      return const DashboardView();
+    case 1:
+      return const VoucherView();
+    case 2:
+      return const WalletView();
+    case 3:
+      return const SettingsView();
+    default:
+      return const DashboardView();
+  }
 }
